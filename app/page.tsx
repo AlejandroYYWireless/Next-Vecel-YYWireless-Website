@@ -8,7 +8,7 @@ export default function Home() {
     <div className="space-y-6">
       <HomeSlogan />
       <HomeVideo />
-      {/* <HomeCertificates /> */}
+      <HomeCertificates />
       <MarqueeDemo />
     </div>
   );

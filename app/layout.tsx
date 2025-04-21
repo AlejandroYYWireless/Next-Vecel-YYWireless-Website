@@ -1,9 +1,9 @@
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-import { ThemeProvider } from "@/components/ui/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 import Navbar from "./components/navbar/Navbar";
+import "./globals.css";
 
 //
 const geistSans = localFont({

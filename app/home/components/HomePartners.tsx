@@ -1,9 +1,9 @@
 "use client";
 
+import { AuroraText } from "@/components/magicui/aurora-text";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
-import { AuroraText } from "@/components/magicui/aurora-text";
 
 const reviews = [
   {
