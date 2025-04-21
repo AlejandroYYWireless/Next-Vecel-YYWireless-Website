@@ -8,7 +8,6 @@
   }
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -64,10 +63,12 @@
     --chart-4: 0 0% 17.9%;
     --chart-5: 150.24 53% 40%;
   }
+  .theme {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+    --animate-aurora: aurora 8s ease-in-out infinite alternate;
+  }
 }
-
-
-
 
 @layer base {
   * {
@@ -75,5 +76,62 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes aurora {
+  0% {
+    backgroundPosition: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+    }
+  25% {
+    backgroundPosition: 50% 100%;
+    transform: rotate(5deg) scale(1.1);
+    }
+  50% {
+    backgroundPosition: 100% 50%;
+    transform: rotate(-3deg) scale(0.95);
+    }
+  75% {
+    backgroundPosition: 50% 0%;
+    transform: rotate(3deg) scale(1.05);
+    }
+  100% {
+    backgroundPosition: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+    }
   }
 }
