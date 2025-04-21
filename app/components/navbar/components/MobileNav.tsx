@@ -1,15 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import { Menu } from "lucide-react";
-import { NavItem, navItems, NavSubLink } from "@/app/public/data/navigation";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { NavItem, navItems } from "@/app/public/data/navigation";
 import {
   Accordion,
   AccordionContent,
@@ -17,6 +7,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 import { ModeToggle } from "./ModeToggle";
 
 const MobileNav = () => {

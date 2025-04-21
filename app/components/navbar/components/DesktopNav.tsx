@@ -1,8 +1,6 @@
 "use client";
 // DesktopNav.tsx
-import React from "react";
-import Link from "next/link";
-import { navItems, NavItem, NavSubLink } from "@/app/public/data/navigation";
+import { NavItem, navItems } from "@/app/public/data/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,6 +10,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 
 const DesktopNav = () => {
@@ -34,13 +33,7 @@ const DesktopNav = () => {
   );
 };
 
-const NavItemComponent = ({
-  itemKey,
-  item,
-}: {
-  itemKey: string;
-  item: NavItem;
-}) => {
+const NavItemComponent = ({ item }: { itemKey: string; item: NavItem }) => {
   // If there are no subLinks or path is not null, render a simple link
   if (!item.subLinks || item.path) {
     return (
