@@ -1,10 +1,7 @@
-import { ModeToggle } from "./components/navbar/components/ModeToggle";
-
 export default function Home() {
   return (
-    <div>
-      <h1>YYWireless</h1>
-      <ModeToggle />
+    <div className="bg-primary h-screen justify-center flex items-center text-4xl font-extrabold">
+      Example page
     </div>
   );
 }
