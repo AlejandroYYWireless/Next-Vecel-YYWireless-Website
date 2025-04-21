@@ -1,5 +1,5 @@
 const page = () => {
-  return <div>YYWireless About US</div>;
+  return <div>Contact Us</div>;
 };
 
 export default page;

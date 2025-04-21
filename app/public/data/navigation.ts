@@ -23,24 +23,19 @@ export const navItems: Record<string, NavItem> = {
     subLinks: {
       "contact-us": {
         label: "Contact Us",
-        path: "/contact-us",
+        path: "/wholesale/contact-us",
         subLinks: null,
       },
-      pricing: {
-        label: "Pricing",
-        path: "/pricing",
+      deals: {
+        label: "Current Deals",
+        path: "/wholesale/current-deals",
         subLinks: null,
       },
     },
   },
   about: {
     label: "About",
-    path: "/about",
-    subLinks: null,
-  },
-  blog: {
-    label: "Blog",
-    path: "/blog",
+    path: "/about-us",
     subLinks: null,
   },
 };
