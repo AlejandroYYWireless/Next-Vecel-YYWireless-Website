@@ -47,7 +47,7 @@ const NavItemComponent = ({ item }: { itemKey: string; item: NavItem }) => {
     );
   }
 
-  // Otherwise render a dropdown with subLinks
+  // Otherwise render a dropdown with subLinks test
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
