@@ -17,7 +17,7 @@ const DesktopNav = () => {
   return (
     <div className="container mx-auto flex h-16 items-center justify-between border-b">
       <Link href="/" className="flex items-center space-x-2">
-        <span className="font-bold text-xl">YYWireless</span>
+        <span className="font-bold text-3xl">YYWireless</span>
       </Link>
       <NavigationMenu>
         <NavigationMenuList>

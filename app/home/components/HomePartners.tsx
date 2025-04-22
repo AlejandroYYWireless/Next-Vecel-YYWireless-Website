@@ -4,6 +4,7 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -40,7 +41,7 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-full w-fit sm:w-36 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full min-w-[250px] sm:w-36 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -48,7 +49,13 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image
+          className="rounded-full"
+          width={32}
+          height={32}
+          alt={`${name}'s avatar`}
+          src={img}
+        />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -61,10 +68,10 @@ const ReviewCard = ({
   );
 };
 
-export function MarqueeDemo() {
+export function HomePartners() {
   return (
-    <div className="flex justify-center flex-col items-center space-y-6 mt-6">
-      <h2 className="text-7xl font-semibold">
+    <div className="flex justify-center flex-col items-center space-y-12 mt-6 ">
+      <h2 className="text-7xl font-semibold ">
         What <AuroraText className="font-bold">Others</AuroraText> say about us
       </h2>
       <Marquee
