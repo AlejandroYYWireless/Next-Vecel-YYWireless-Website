@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "vercel-build": "npm ci --force && npm run build",
-    "vercel-install": "npm ci --force && npx shadcn@latest add \"https://v3.magicui.design/r/aurora-text\" --overwrite && npx shadcn@latest add \"https://v3.magicui.design/r/orbiting-circles\" --overwrite",
     "dev": "next dev",
+    "prebuild": "node install-components.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "node install-components.js"
+
   },
   "dependencies": {
     "@devnomic/marquee": "^1.0.3",

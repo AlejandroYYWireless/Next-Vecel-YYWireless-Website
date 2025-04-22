@@ -16,7 +16,7 @@ const certificates = [
   {
     id: 1,
     name: "R2 Certification",
-    image: "/images/r2.webp",
+    image: "/images/R2.webp",
     description:
       "Electronics recycling standard certification for responsible recycling practices and environmental stewardship.",
     downloadLink: null,
