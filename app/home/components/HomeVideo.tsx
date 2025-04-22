@@ -20,14 +20,14 @@ const HomeVideo = () => {
       <HeroVideoDialog
         className="block dark:hidden"
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        videoSrc="https://videos.pexels.com/video-files/946147/946147-hd_1920_1080_30fps.mp4"
         thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
         thumbnailAlt="Hero Video"
       />
       <HeroVideoDialog
         className="hidden dark:block"
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        videoSrc="https://videos.pexels.com/video-files/946147/946147-hd_1920_1080_30fps.mp4"
         thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
         thumbnailAlt="Hero Video"
       />
