@@ -102,13 +102,22 @@ const config: Config = {
   					backgroundPosition: '0% 50%',
   					transform: 'rotate(-5deg) scale(0.9)'
   				}
+  			},
+  			orbit: {
+  				'0%': {
+  					transform: 'rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg))'
+  				},
+  				'100%': {
+  					transform: 'rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg))'
+  				}
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'line-shadow': 'line-shadow 15s linear infinite',
-  			aurora: 'aurora 8s ease-in-out infinite alternate'
+  			aurora: 'aurora 8s ease-in-out infinite alternate',
+  			orbit: 'orbit calc(var(--duration)*1s) linear infinite'
   		}
   	}
   },

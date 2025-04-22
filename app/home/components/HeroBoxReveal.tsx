@@ -6,14 +6,16 @@ export function HeroBoxReveal() {
     <div className="size-full max-w-lg items-center justify-start overflow-hidden">
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
         <p className="text-[3.5rem] font-semibold mt-0 pt-0">
-          YYWireless<span className="text-[#5046e6]">.</span>
+          Industry Leading<span className="text-[#5046e6]">.</span>
         </p>
       </BoxReveal>
 
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
         <h2 className="mt-[.5rem] text-[1rem]">
-          Industry Standard for{" "}
-          <span className="text-[#5046e6]"> Repurposing with Purpose</span>
+          Setting the standard for{" "}
+          <span className="text-[#5046e6]">
+            &#34;Repurposing with Purpose&#34;
+          </span>
         </h2>
       </BoxReveal>
 

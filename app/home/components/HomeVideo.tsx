@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { Skeleton } from "@/components/ui/skeleton";
+import { DotPattern } from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 // Dynamically import ReactPlayer with no SSR
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
@@ -32,32 +34,57 @@ const HomeVideo = () => {
 
   // Only render the player once we're on the client
   if (!isMounted) {
-    return <Skeleton className="w-full h-screen" />;
+    return <Skeleton className="w-full h-[400px] rounded-lg" />;
   }
 
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl shadow-lg">
-      {/* Video player wrapper with overflow hidden to enforce rounded corners */}
-      <div className="aspect-video w-full overflow-hidden rounded-3xl">
-        <ReactPlayer
-          className="react-player"
-          url={videoUrls[currentVideoIndex]}
-          width="100%"
-          height="100%"
-          playing={true}
-          controls={true}
-          muted={true}
-          playsinline={true}
-          onEnded={handleEnded}
-          config={{
-            file: {
-              attributes: {
-                controlsList: "nodownload",
-                style: { borderRadius: "24px" },
-              },
-            },
-          }}
+    <div className="relative w-full pb-12 ">
+      {/* Enlarged dot pattern that extends beyond the video boundaries */}
+      <div
+        className="absolute inset-0 z-0 overflow-hidden"
+        style={{
+          transform: "scale(1.5)",
+          top: "40%",
+          left: "10%",
+          width: "100%",
+        }}
+      >
+        <DotPattern
+          width={20}
+          height={20}
+          cx={1}
+          cy={1}
+          cr={1}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+          )}
         />
+      </div>
+
+      {/* Video positioned to take up most but not all of the container */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto overflow-hidden rounded-3xl shadow-lg">
+        {/* Video player wrapper with overflow hidden to enforce rounded corners */}
+        <div className="aspect-video w-full overflow-hidden rounded-3xl">
+          <ReactPlayer
+            className="react-player"
+            url={videoUrls[currentVideoIndex]}
+            width="100%"
+            height="100%"
+            playing={true}
+            controls={true}
+            muted={true}
+            playsinline={true}
+            onEnded={handleEnded}
+            config={{
+              file: {
+                attributes: {
+                  controlsList: "nodownload",
+                  style: { borderRadius: "24px" },
+                },
+              },
+            }}
+          />
+        </div>
       </div>
     </div>
   );

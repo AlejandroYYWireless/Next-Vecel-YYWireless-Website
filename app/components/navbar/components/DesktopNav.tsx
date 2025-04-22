@@ -17,7 +17,14 @@ const DesktopNav = () => {
   return (
     <div className="container mx-auto flex h-16 items-center justify-between border-b">
       <Link href="/" className="flex items-center space-x-2">
-        <span className="font-bold text-3xl">YYWireless</span>
+        <img
+          src="/images/logo.png"
+          className="h-8 me-3"
+          alt="YYWireless Logo"
+        />
+        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          YYWireless
+        </span>{" "}
       </Link>
       <NavigationMenu>
         <NavigationMenuList>
