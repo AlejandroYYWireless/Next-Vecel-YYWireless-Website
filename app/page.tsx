@@ -1,6 +1,7 @@
 import { HeroBoxReveal } from "./home/components/HeroBoxReveal";
 import { HomeCarriers } from "./home/components/HomeCarriers";
 import HomeCertificates from "./home/components/HomeCertificates";
+import HomeCertificatesCarousel from "./home/components/HomeCertificatesCarousel";
 import HomeGlobe from "./home/components/HomeGlobe";
 import { HomePartners } from "./home/components/HomePartners";
 import HomeTextReveal from "./home/components/HomeTextReveal";
@@ -24,7 +25,10 @@ export default function Home() {
         <div />
       </div>
       <HomePartners />
-      <HomeCertificates />
+      <div className="flex items-center justify-center">
+        <HomeCertificates />
+        <HomeCertificatesCarousel />
+      </div>
     </div>
   );
 }

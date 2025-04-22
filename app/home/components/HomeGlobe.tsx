@@ -10,11 +10,11 @@ const HomeGlobe = () => {
     <WarpBackground>
       <div className="h-[600px] relative flex justify-center items-center">
         {/* Word Rotate section moved to be on top of the box content */}
-        <div className="absolute z-50 flex flex-col items-start left-20 justify-start px-4 w-full max-w-4xl mx-auto">
+        <div className="absolute z-50 flex flex-col items-start left-20 justify-start px-4 w-full max-w-5xl mx-auto">
           {/* Title with Word Rotate */}
           <div className="flex items-center gap-4 mb-8">
             <h3 className="text-6xl font-extrabold">YYWireless is</h3>
-            <div className="rounded-3xl dark:shadow-xl dark:bg-background/50">
+            <div className="rounded-3xl dark:shadow-xl dark:bg-background/50 p-2">
               <WordRotate
                 words={[
                   "Global",
@@ -30,37 +30,35 @@ const HomeGlobe = () => {
 
           {/* Box content */}
           <div className="flex flex-col items-start justify-start gap-4">
-            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
+            <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
               <p className="text-[3.5rem] font-semibold">
-                Service to scale<span className="text-[#5046e6]">.</span>
+                Service to scale<span className="text-primary">.</span>
               </p>
             </BoxReveal>
 
-            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-              <h2 className="mt-[.5rem] text-[1rem] bg-black/5 p-4 rounded-xl">
+            <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
+              <h2 className="mt-[.5rem] text-[1rem] bg-black/5 dark:bg-black/80 p-4 rounded-xl">
                 Our services are designed to handle the most{" "}
-                <span className="text-[#5046e6]">demanding</span> to the{" "}
-                <span className="text-[#5046e6]">smallest</span> of requests.
+                <span className="text-primary">demanding</span> to the{" "}
+                <span className="text-primary">smallest</span> of requests.
               </h2>
             </BoxReveal>
 
-            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-              <div className="mt-6 bg-black/5 p-4 rounded-xl">
+            <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
+              <div className="mt-6 bg-black/5 dark:bg-black/80 p-4 rounded-xl">
                 <p>
                   From products to services, we have everything you need to{" "}
-                  <span className="font-semibold text-[#5046e6]">Scale</span>,{" "}
-                  <span className="font-semibold text-[#5046e6]">Innovate</span>
-                  ,{" "}
-                  <span className="font-semibold text-[#5046e6]">Compete</span>{" "}
-                  , and{" "}
-                  <span className="font-semibold text-[#5046e6]">More</span>
+                  <span className="font-semibold text-primary">Scale</span>,{" "}
+                  <span className="font-semibold text-primary">Innovate</span>,{" "}
+                  <span className="font-semibold text-primary">Compete</span> ,
+                  and <span className="font-semibold text-primary">More</span>
                   . <br />
                 </p>
               </div>
             </BoxReveal>
 
-            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-              <Button className="mt-[1.6rem] bg-[#5046e6]">
+            <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
+              <Button className="mt-[1.6rem] bg-primary">
                 Learn about our products & pricing
               </Button>
             </BoxReveal>

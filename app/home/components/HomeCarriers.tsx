@@ -2,15 +2,25 @@ import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 
 export function HomeCarriers() {
   return (
-    <div className="relative flex h-[800px] w-full flex-col items-center justify-center overflow-hidden">
-      <OrbitingCircles speed={0.8} iconSize={80}>
+    <div className="relative dark:bg-white/10 dark:rounded-3xl flex h-[800px] w-full flex-col items-center justify-center overflow-hidden">
+      <OrbitingCircles
+        speed={0.8}
+        iconSize={80}
+        className="dark:bg-white/90 p-2"
+      >
         <Icons.fedexexpress />
         <Icons.fedexground />
         <Icons.usps />
         <Icons.dnclexpress />
         <Icons.fedexexpress />
       </OrbitingCircles>
-      <OrbitingCircles iconSize={40} radius={100} reverse speed={2}>
+      <OrbitingCircles
+        iconSize={40}
+        radius={90}
+        reverse
+        speed={2}
+        className="dark:bg-white/90 p-2"
+      >
         <Icons.dnclexpress />
         <Icons.fedexground />
         <Icons.usps />
