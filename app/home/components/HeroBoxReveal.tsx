@@ -5,7 +5,7 @@ export function HeroBoxReveal() {
   return (
     <div className="size-full max-w-lg items-center justify-start overflow-hidden">
       <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-        <p className="text-[3.5rem] font-semibold mt-0 pt-0">
+        <p className="text-[3.5rem] font-semibold whitespace-nowrap mt-0 pt-0">
           Industry Leading<span className="text-primary">.</span>
         </p>
       </BoxReveal>

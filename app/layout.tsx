@@ -1,21 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
-
-//
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "YYWireless",
@@ -28,13 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // we get a hydration warning because of Next Theme but the supressHydrationWarning will stop that from happening.
     <html lang="en" suppressHydrationWarning>
-      {/* Here we're defining the favicon location */}
       <link rel="icon" href="/icon.png" sizes="any" />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      {/* i hate this font */}
+      <body className="font-mokoto antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
