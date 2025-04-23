@@ -1,10 +1,8 @@
 import { HeroBoxReveal } from "./home/components/HeroBoxReveal";
-import { HomeCarriers } from "./home/components/HomeCarriers";
 import HomeCertificates from "./home/components/HomeCertificates";
 import HomeCertificatesCarousel from "./home/components/HomeCertificatesCarousel";
 import { HomePartners } from "./home/components/HomePartners";
 import HomeSlogan from "./home/components/HomeSlogan";
-import HomeTextReveal from "./home/components/HomeTextReveal";
 import HomeVideo from "./home/components/HomeVideo";
 
 export default function Home() {
