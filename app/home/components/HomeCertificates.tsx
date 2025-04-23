@@ -62,7 +62,7 @@ const HomeCertificates = () => {
               <ScrollArea className="h-[70vh] pr-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* R2 Certificate */}
-                  <div className="rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-800">
+                  <div className="rounded-xl shadow-md overflow-hidden transition-al l duration-300 hover:shadow-xl bg-white dark:bg-gray-800">
                     <div className="relative w-full h-56 ">
                       <Image
                         src="/images/R2.webp"
@@ -99,7 +99,7 @@ const HomeCertificates = () => {
                       <h3 className="text-lg font-semibold mb-2">
                         ADISA Certification
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 ">
                         Asset Disposal and Information Security Alliance
                         certification for secure data destruction and IT asset
                         disposal.

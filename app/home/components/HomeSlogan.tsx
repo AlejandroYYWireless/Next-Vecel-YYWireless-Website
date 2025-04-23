@@ -1,6 +1,6 @@
 const HomeSlogan = () => {
   return (
-    <h1 className="w-full flex justify-center items-center font-bold text-3xl my-4">
+    <h1 className="w-full  font-mokoto flex justify-center items-center font-bold text-5xl my-4">
       Reporpose with Purpose
     </h1>
   );

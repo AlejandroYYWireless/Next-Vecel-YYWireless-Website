@@ -77,7 +77,7 @@ const ReviewCard = ({
   );
 };
 
-const colors = ["#98FB98", "#a3ff1a", "#90EE90", "#00b3ff", "#87CEFA"];
+const colors = ["#98FB98", "#a3ff1a", "#90EE90", "#8DC63F", "#369C2A"];
 
 export function HomePartners() {
   return (
