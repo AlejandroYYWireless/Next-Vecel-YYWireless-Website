@@ -33,7 +33,7 @@ const MobileNav = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="text-primary-foreground"
+            className="text-primary" // Change from text-primary-foreground to text-primary
           >
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>

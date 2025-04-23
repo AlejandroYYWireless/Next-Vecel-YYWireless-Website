@@ -16,10 +16,10 @@ import Link from "next/link";
 
 const HomeCertificates = () => {
   return (
-    <section className="py-6">
+    <section className="py-6 p-4 md:p-0">
       <div className="flex flex-col items-start justify-start gap-4">
         <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-          <p className="text-6xl font-mokoto font-semibold">
+          <p className="text-4xl  md:text-6xl font-mokoto font-semibold">
             Fully Certified<span className="text-primary">.</span>
           </p>
         </BoxReveal>

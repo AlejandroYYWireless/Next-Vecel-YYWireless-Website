@@ -7,16 +7,20 @@ import HomeVideo from "./home/components/HomeVideo";
 
 export default function Home() {
   return (
-    <div className="space-y-6">
+    <div>
       <HomeSlogan />
 
-      <div className="container mx-auto grid grid-cols-2 gap-4 mt-14 space-x-6 mb-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-14 space-x-6 mb-12">
         <HomeVideo />
         <HeroBoxReveal />
       </div>
-      <div className="flex items-center justify-center">
-        <HomeCertificates />
-        <HomeCertificatesCarousel />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-[200px]">
+        <div className="place-self-end">
+          <HomeCertificates />
+        </div>
+        <div className="place-self-start">
+          <HomeCertificatesCarousel />
+        </div>
       </div>
       <HomePartners />
     </div>

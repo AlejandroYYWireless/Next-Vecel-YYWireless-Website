@@ -51,7 +51,7 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-fit min-w-[250px] md:max-w-[400px] cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative md:h-fit min-w-[100px] max-w-[300px] md:min-w-[250px] md:max-w-[400px] cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -82,7 +82,7 @@ const colors = ["#98FB98", "#a3ff1a", "#90EE90", "#8DC63F", "#369C2A"];
 export function HomePartners() {
   return (
     <div className="flex justify-center flex-col items-center space-y-12 mt-6 ">
-      <h2 className="text-7xl font-semibold font-mokoto">
+      <h2 className="text-5xl text-center md:text-start md:text-7xl font-semibold font-mokoto">
         What{" "}
         <AuroraText colors={colors} className="font-bold">
           Others
@@ -93,7 +93,7 @@ export function HomePartners() {
         fade={true}
         direction="left"
         pauseOnHover={true}
-        className="h-full w-[800px]"
+        className=" md:h-full w-[80vw] md:w-[800px]"
       >
         {reviews.map((review) => (
           <ReviewCard key={review.name} {...review} />
