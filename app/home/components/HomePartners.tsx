@@ -82,7 +82,7 @@ const colors = ["#98FB98", "#a3ff1a", "#90EE90", "#00b3ff", "#87CEFA"];
 export function HomePartners() {
   return (
     <div className="flex justify-center flex-col items-center space-y-12 mt-6 ">
-      <h2 className="text-7xl font-semibold ">
+      <h2 className="text-7xl font-semibold font-mokoto">
         What{" "}
         <AuroraText colors={colors} className="font-bold">
           Others

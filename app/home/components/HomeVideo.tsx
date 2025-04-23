@@ -70,19 +70,12 @@ const HomeVideo = () => {
             url={videoUrls[currentVideoIndex]}
             width="100%"
             height="100%"
+            quality="low"
             playing={true}
             controls={true}
             muted={true}
             playsinline={true}
             onEnded={handleEnded}
-            config={{
-              file: {
-                attributes: {
-                  controlsList: "nodownload",
-                  style: { borderRadius: "24px" },
-                },
-              },
-            }}
           />
         </div>
       </div>

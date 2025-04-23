@@ -4,12 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node install-components.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "node install-components.js"
-
+    "lint": "next lint"
   },
   "dependencies": {
     "@devnomic/marquee": "^1.0.3",

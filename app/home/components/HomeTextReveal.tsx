@@ -4,7 +4,9 @@ import React from "react";
 const HomeTextReveal = () => {
   return (
     <div>
-      <TextReveal>We support in ALL of YOUR favorite carriers.</TextReveal>
+      <TextReveal className="font-mokoto">
+        We support in ALL of YOUR favorite carriers.
+      </TextReveal>
     </div>
   );
 };

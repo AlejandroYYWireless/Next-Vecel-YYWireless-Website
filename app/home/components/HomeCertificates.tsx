@@ -5,6 +5,7 @@ import { BoxReveal } from "@/components/magicui/box-reveal";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -18,7 +19,7 @@ const HomeCertificates = () => {
     <section className="py-6">
       <div className="flex flex-col items-start justify-start gap-4">
         <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-          <p className="text-[3.5rem] font-semibold">
+          <p className="text-6xl font-mokoto font-semibold">
             Fully Certified<span className="text-primary">.</span>
           </p>
         </BoxReveal>
@@ -51,17 +52,20 @@ const HomeCertificates = () => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-4xl max-h-[90vh] rounded-xl">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-center mb-4">
+                <DialogTitle className="text-3xl font-mokoto font-bold text-center mb-4">
                   Our Certifications
                 </DialogTitle>
+                <DialogDescription>
+                  All certifications are up to date and verified.
+                </DialogDescription>
               </DialogHeader>
               <ScrollArea className="h-[70vh] pr-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* R2 Certificate */}
                   <div className="rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-800">
-                    <div className="relative w-full h-56">
+                    <div className="relative w-full h-56 ">
                       <Image
-                        src="/images/r2.webp"
+                        src="/images/R2.webp"
                         alt="R2 Certificate"
                         fill
                         className="object-contain p-4"
