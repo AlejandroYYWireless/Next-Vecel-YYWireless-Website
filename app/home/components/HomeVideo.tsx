@@ -41,7 +41,7 @@ const HomeVideo = () => {
     <div className="relative  w-full pb-12 ">
       {/* Enlarged dot pattern that extends beyond the video boundaries */}
       <div
-        className="absolute inset-0 z-0 overflow-hidden"
+        className="hidden md:absolute md:inset-0 md:z-0 md:overflow-hidden"
         style={{
           transform: "scale(1.5)",
           top: "40%",
