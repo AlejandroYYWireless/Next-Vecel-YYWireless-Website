@@ -13,8 +13,10 @@ const HomeGlobe = () => {
         <div className="absolute z-50 flex flex-col items-start left-20 justify-start px-4 w-full max-w-5xl mx-auto">
           {/* Title with Word Rotate */}
           <div className="flex items-center gap-4 mb-8">
-            <h3 className="text-6xl font-extrabold">YYWireless is</h3>
-            <div className="rounded-3xl dark:shadow-xl dark:bg-background/50 p-2">
+            <h3 className="text-6xl font-extrabold font-mokoto">
+              YYWireless is
+            </h3>
+            <div className="rounded-3xl font-mokoto dark:shadow-xl dark:bg-background/50 p-2">
               <WordRotate
                 words={[
                   "Global",
@@ -31,7 +33,7 @@ const HomeGlobe = () => {
           {/* Box content */}
           <div className="flex flex-col items-start justify-start gap-4">
             <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-              <p className="text-[3.5rem] font-semibold">
+              <p className="text-5xl font-mokoto font-semibold">
                 Service to scale<span className="text-primary">.</span>
               </p>
             </BoxReveal>

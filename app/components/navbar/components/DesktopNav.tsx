@@ -15,14 +15,14 @@ import { ModeToggle } from "./ModeToggle";
 
 const DesktopNav = () => {
   return (
-    <div className="container mx-auto flex h-16 items-center justify-between border-b">
-      <Link href="/" className="flex items-center space-x-2">
+    <div className="container mx-auto flex h-16  items-center justify-between border-b ">
+      <Link href="/" className="flex self-end space-x-2">
         <img
           src="/images/logo.png"
           className="h-8 me-3"
           alt="YYWireless Logo"
         />
-        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+        <span className="self-center font-mokoto text-3xl font-semibold whitespace-nowrap dark:text-white">
           YYWireless
         </span>{" "}
       </Link>

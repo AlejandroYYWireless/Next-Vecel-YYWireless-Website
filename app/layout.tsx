@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/icon.png" sizes="any" />
       {/* i hate this font */}
-      <body className="font-mokoto antialiased">
+      <body className="font-monsterrat antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

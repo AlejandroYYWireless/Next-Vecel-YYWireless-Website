@@ -5,18 +5,18 @@ export function HeroBoxReveal() {
   return (
     <div className="size-full max-w-lg items-center justify-start overflow-hidden">
       <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-        <p className="text-[3.5rem] font-semibold whitespace-nowrap mt-0 pt-0">
+        <p className="text-[3.5rem] font-mokoto font-semibold whitespace-nowrap mt-0 pt-0">
           Industry Leading<span className="text-primary">.</span>
         </p>
       </BoxReveal>
 
       <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-        <h2 className="mt-[.5rem] text-[1rem]">
+        <p className="mt-[.5rem] text-[1rem]">
           Setting the standard for{" "}
           <span className="text-primary">
             &#34;Repurposing with Purpose&#34;
           </span>
-        </h2>
+        </p>
       </BoxReveal>
 
       <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
