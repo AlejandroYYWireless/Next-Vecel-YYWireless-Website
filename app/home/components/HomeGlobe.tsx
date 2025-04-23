@@ -10,7 +10,7 @@ const HomeGlobe = () => {
     <WarpBackground>
       <div className="h-[600px] relative flex justify-center items-center">
         {/* Word Rotate section moved to be on top of the box content */}
-        <div className="absolute z-50 flex flex-col items-start left-20 justify-start px-4 w-full max-w-5xl mx-auto">
+        <div className="absolute z-50 pointer-events-none flex flex-col items-start left-20 justify-start px-4 w-full max-w-5xl mx-auto">
           {/* Title with Word Rotate */}
           <div className="flex items-center gap-4 mb-8">
             <h3 className="text-6xl font-extrabold font-mokoto">
