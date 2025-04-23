@@ -2,7 +2,6 @@ import { HeroBoxReveal } from "./home/components/HeroBoxReveal";
 import { HomeCarriers } from "./home/components/HomeCarriers";
 import HomeCertificates from "./home/components/HomeCertificates";
 import HomeCertificatesCarousel from "./home/components/HomeCertificatesCarousel";
-import HomeGlobe from "./home/components/HomeGlobe";
 import { HomePartners } from "./home/components/HomePartners";
 import HomeSlogan from "./home/components/HomeSlogan";
 import HomeTextReveal from "./home/components/HomeTextReveal";
@@ -17,19 +16,11 @@ export default function Home() {
         <HomeVideo />
         <HeroBoxReveal />
       </div>
-      <HomeGlobe />
-      <div className="container mx-auto grid grid-cols-2 gap-4 space-x-6 place-items-end">
-        <HomeTextReveal />
-        <HomeCarriers />
-      </div>
-      <div className="container mx-auto grid grid-cols-2 gap-4 space-x-6">
-        <div />
-      </div>
-      <HomePartners />
       <div className="flex items-center justify-center">
         <HomeCertificates />
         <HomeCertificatesCarousel />
       </div>
+      <HomePartners />
     </div>
   );
 }
