@@ -7,7 +7,18 @@ import "@devnomic/marquee/dist/index.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const brandImages = ["/images/brands/ATT.png", "/images/brands/TMobile.png"];
+const brandImages = [
+  "/images/brands/UPS.png",
+  "/images/brands/Amazon.png",
+  "/images/brands/Walmart.png",
+  "/images/brands/eBay.png",
+  "/images/brands/PhoneCheck.png",
+  "/images/brands/Reebelo.png",
+  "/images/brands/ATT.png",
+  "/images/brands/TMobile.png",
+  "/images/brands/USPS.png",
+  "/images/brands/FedEx.png",
+];
 
 const BrandCard = ({ img }: { img: string }) => {
   // Extract brand name from the path for alt text
@@ -57,7 +68,7 @@ export function HomePartners() {
           Partners
         </AuroraText>{" "}
       </h2>
-      <Marquee fade={true} direction="left" className="h-full w-full max-w-xl">
+      <Marquee fade={true} direction="left" className="h-full w-full max-w-7xl">
         {brandImages.map((brand) => (
           <BrandCard key={brand} img={brand} />
         ))}

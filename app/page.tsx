@@ -16,7 +16,7 @@ export default function Home() {
           <HomeShinyButton />
         </div>
       </div>
-      <HomeBrands />
+      <HomePartners />
       <div>
         <HomeNumbers />
       </div>
@@ -25,7 +25,6 @@ export default function Home() {
       </div>
 
       <QualityAndLense />
-      <HomePartners />
 
       <HomeCertificates />
     </div>
