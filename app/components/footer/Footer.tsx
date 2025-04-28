@@ -1,20 +1,24 @@
-import React from "react";
-
+"use client";
+import { useTheme } from "next-themes";
 const Footer = () => {
+  const theme = useTheme();
+  const isDarkmode = theme.theme === "dark";
+
   return (
-    <footer className="bg-white border-t mt-12 dark:bg-gray-900">
+    <footer className="bg-white border-t border-border mt-12 dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
+          <div className="border-b border-border py-4 md:border-none mb-6 md:mb-0">
             <a href="https://YYWireless.com/" className="flex items-center">
               <img
-                src="/images/logo.png"
-                className="h-8 me-3"
+                src={`${
+                  isDarkmode
+                    ? "/images/logolargedark.png"
+                    : "/images/logolarge.png"
+                }`}
+                className="h-12  md:h-36 me-3"
                 alt="YYWireless Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                YYWireless
-              </span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -83,7 +87,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 border-border sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2025{" "}

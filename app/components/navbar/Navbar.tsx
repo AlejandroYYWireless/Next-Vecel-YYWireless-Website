@@ -1,8 +1,8 @@
 // Navbar.tsx
 import React from "react";
+import Footer from "../footer/Footer";
 import DesktopNav from "./components/DesktopNav";
 import MobileNav from "./components/MobileNav";
-import Footer from "../footer/Footer";
 
 const Navbar = ({ children }: { children?: React.ReactNode }) => {
   return (

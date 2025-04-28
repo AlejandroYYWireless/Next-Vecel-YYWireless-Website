@@ -2,36 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Mokoto font */
-@font-face {
-  font-family: 'Mokoto';
-  src: url('/fonts/mokoto.regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-/* Import Mokoto font */
-@font-face {
-  font-family: 'Monsterrat';
-  src: url('/fonts/monsterrat.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  /* Add utility classes for the custom font */
-  .font-mokoto {
-    font-family: 'Mokoto', sans-serif;
-  }
-  .font-monsterrat {
-    font-family: 'Monsterrat', sans-serif;
-  }
-}
 
 @layer base {
   :root {
@@ -99,21 +70,3 @@
   }
 }
 
-@theme inline {
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes marquee-vertical {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(calc(-100% - var(--gap)));
-    }
-  }
-}

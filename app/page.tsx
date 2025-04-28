@@ -1,34 +1,33 @@
-import { HeroBoxReveal } from "./home/components/HeroBoxReveal";
-import { HomeCarriers } from "./home/components/HomeCarriers";
+import { HomeBento } from "./home/components/HomeBento";
+import { HomeBrands } from "./home/components/HomeBrands";
 import HomeCertificates from "./home/components/HomeCertificates";
-import HomeCertificatesCarousel from "./home/components/HomeCertificatesCarousel";
 import HomeGlobe from "./home/components/HomeGlobe";
+import HomeNumbers from "./home/components/HomeNumbers";
 import { HomePartners } from "./home/components/HomePartners";
-import HomeTextReveal from "./home/components/HomeTextReveal";
-import HomeVideo from "./home/components/HomeVideo";
+import HomeShinyButton from "./home/components/HomeShinyButton";
+import QualityAndLense from "./home/components/QualityAndLense";
 
 export default function Home() {
   return (
-    <div className="space-y-6">
-      {/* <HomeSlogan /> */}
+    <div className="space-y-24 md:space-y-48 scrollbar-hide">
+      <div className="relative">
+        <HomeGlobe />
+        <div className="absolute left-1/2 bottom-[-110px]">
+          <HomeShinyButton />
+        </div>
+      </div>
+      <HomeBrands />
+      <div>
+        <HomeNumbers />
+      </div>
+      <div className="container mx-auto">
+        <HomeBento />
+      </div>
 
-      <div className="container mx-auto grid grid-cols-2 gap-4 mt-14 space-x-6 mb-12">
-        <HomeVideo />
-        <HeroBoxReveal />
-      </div>
-      <HomeGlobe />
-      <div className="container mx-auto grid grid-cols-2 gap-4 space-x-6 place-items-end">
-        <HomeTextReveal />
-        <HomeCarriers />
-      </div>
-      <div className="container mx-auto grid grid-cols-2 gap-4 space-x-6">
-        <div />
-      </div>
+      <QualityAndLense />
       <HomePartners />
-      <div className="flex items-center justify-center">
-        <HomeCertificates />
-        <HomeCertificatesCarousel />
-      </div>
+
+      <HomeCertificates />
     </div>
   );
 }

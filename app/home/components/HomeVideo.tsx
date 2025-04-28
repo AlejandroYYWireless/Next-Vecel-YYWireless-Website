@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-import { Skeleton } from "@/components/ui/skeleton";
 import { DotPattern } from "@/components/magicui/dot-pattern";
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 // Dynamically import ReactPlayer with no SSR
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });

@@ -15,27 +15,32 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ModeToggle } from "./ModeToggle";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const theme = useTheme();
+  const isDarkmode = theme.theme === "dark";
   return (
     <div className="flex h-16 items-center justify-between px-4">
+      <div></div>
       <Link href="/" className="flex items-center space-x-2">
-        <span className="font-bold text-xl">YYWireless</span>
+        <Image
+          src={`${isDarkmode ? "/images/logo.png" : "/images/logodark.png"}`}
+          alt="YYWireless"
+          width={50}
+          height={50}
+        />
       </Link>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-primary-foreground"
-          >
-            <Menu className="h-6 w-6" />
+          <Button variant="ghost" size="icon" className="text-foreground">
+            <Menu className="h-12 w-12" />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </SheetTrigger>

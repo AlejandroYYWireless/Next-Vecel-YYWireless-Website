@@ -4,10 +4,20 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 
-const brandImages = ["/images/brands/ATT.png", "/images/brands/TMobile.png"];
+const brandImages = [
+  "/images/brands/Apple.png",
+  "/images/brands/Samsung.png",
+  "/images/brands/Google.png",
+  "/images/brands/OnePlus.png",
+  "/images/brands/HP.png",
+  "/images/brands/ASUS.png",
+  "/images/brands/TCL.png",
+  "/images/brands/LG.png",
+  "/images/brands/Dell.png",
+];
 
 const BrandCard = ({ img }: { img: string }) => {
   // Extract brand name from the path for alt text
@@ -34,7 +44,7 @@ const BrandCard = ({ img }: { img: string }) => {
 
 const colors = ["#98FB98", "#a3ff1a", "#90EE90", "#00b3ff", "#87CEFA"];
 
-export function HomePartners() {
+export function HomeBrands() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and 50px below final position
@@ -49,15 +59,16 @@ export function HomePartners() {
         duration: 0.7,
         ease: "easeInOut",
       }}
-      className="flex justify-center flex-col items-center space-y-12 mt-6 px-4"
+      className="flex justify-center flex-col items-center space-y-12 pt-12 px-4"
     >
       <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold text-center">
-        Our{" "}
+        Just{" "}
         <AuroraText colors={colors} className="font-bold">
-          Partners
+          some
         </AuroraText>{" "}
+        of the brands we carry
       </h2>
-      <Marquee fade={true} direction="left" className="h-full w-full max-w-xl">
+      <Marquee fade={true} direction="left" className="h-full w-full max-w-7xl">
         {brandImages.map((brand) => (
           <BrandCard key={brand} img={brand} />
         ))}
