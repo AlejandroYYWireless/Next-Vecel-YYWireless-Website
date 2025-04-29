@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@devnomic/marquee": "^1.0.3",
+    "@gsap/react": "^2.1.2",
     "@handsontable/react": "^15.2.0",
     "@handsontable/react-wrapper": "^15.2.0",
     "@hookform/resolvers": "3.9.0",
@@ -49,6 +50,7 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^11.15.0",
+    "gsap": "^3.12.7",
     "lottie-react": "2.4.0",
     "lucide-react": "^0.438.0",
     "motion": "^11.18.2",
