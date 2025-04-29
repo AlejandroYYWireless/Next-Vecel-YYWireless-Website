@@ -17,7 +17,10 @@ import { ModeToggle } from "./ModeToggle";
 
 const DesktopNav = () => {
   const theme = useTheme();
-  const isDarkmode = theme.theme === "dark";
+  const isDarkmode =
+    theme.theme === "dark" ||
+    (theme.theme === "system" && theme.systemTheme === "dark");
+  console.log(theme.systemTheme);
 
   return (
     <>

@@ -24,7 +24,10 @@ import { ModeToggle } from "./ModeToggle";
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
-  const isDarkmode = theme.theme === "dark";
+  const isDarkmode =
+    theme.theme === "dark" ||
+    (theme.theme === "system" && theme.systemTheme === "dark");
+
   return (
     <div className="flex h-16 items-center justify-between px-4">
       <div></div>

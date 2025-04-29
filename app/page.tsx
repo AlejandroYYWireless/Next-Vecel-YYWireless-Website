@@ -1,5 +1,4 @@
 import { HomeBento } from "./home/components/HomeBento";
-import { HomeBrands } from "./home/components/HomeBrands";
 import HomeCertificates from "./home/components/HomeCertificates";
 import HomeGlobe from "./home/components/HomeGlobe";
 import HomeNumbers from "./home/components/HomeNumbers";

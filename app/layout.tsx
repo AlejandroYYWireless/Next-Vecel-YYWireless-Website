@@ -32,7 +32,6 @@ export default function RootLayout({
           </main>
           <Toaster />
         </ThemeProvider>
-        <script>AOS.init();</script>
       </body>
     </html>
   );

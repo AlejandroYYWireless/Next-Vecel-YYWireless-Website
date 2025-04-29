@@ -2,7 +2,9 @@
 import { useTheme } from "next-themes";
 const Footer = () => {
   const theme = useTheme();
-  const isDarkmode = theme.theme === "dark";
+  const isDarkmode =
+    theme.theme === "dark" ||
+    (theme.theme === "system" && theme.systemTheme === "dark");
 
   return (
     <footer className="bg-white border-t border-border mt-12 dark:bg-gray-900">
