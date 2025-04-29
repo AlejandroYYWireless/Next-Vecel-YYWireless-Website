@@ -30,11 +30,11 @@ const BrandCard = ({ img }: { img: string }) => {
         "relative flex items-center justify-center h-24 min-w-[180px] select-none max-w-[250px] mx-2 cursor-default overflow-hidden rounded-xl bg-slate-100 dark:bg-white p-2"
       )}
     >
-      <div className="flex items-center justify-center w-full h-full">
+      <div className="relative w-full h-full">
         <Image
-          className="object-contain max-h-full"
-          width={160}
-          height={80}
+          className="object-contain"
+          fill
+          sizes="(max-width: 768px) 100vw, 200px"
           alt={`${brandName} logo`}
           src={img}
         />
@@ -48,13 +48,13 @@ const colors = ["#98FB98", "#a3ff1a", "#90EE90", "#00b3ff", "#87CEFA"];
 export function HomePartners() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and 50px below final position
-      whileInView={{ opacity: 1, y: 0 }} // Animate to opacity 1 and final position
-      exit={{ opacity: 0, y: -50 }} // When exiting, fade out and move up 50px
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
       viewport={{
-        once: true, // Animation will trigger every time
-        amount: 0.3, // Triggers when 30% in view for entering
-        margin: "0px 0px -20% 0px", // Exit animation starts when element is 60% out of viewport
+        once: true,
+        amount: 0.3,
+        margin: "0px 0px -20% 0px",
       }}
       transition={{
         duration: 0.7,

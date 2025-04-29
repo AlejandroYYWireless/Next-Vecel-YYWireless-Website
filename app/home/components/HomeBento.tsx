@@ -2,6 +2,7 @@
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { Clock, Smile, TruckIcon } from "lucide-react";
+import Image from "next/image";
 
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
@@ -92,10 +93,15 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <img
-        src="/images/chatbubble.webp"
-        className="absolute right-4 bottom-10 w-64 h-auto object-contain transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-95"
-      />
+      <div className="absolute right-4 bottom-10 w-64 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-95">
+        <Image
+          src="/images/chatbubble.webp"
+          width={256}
+          height={256}
+          alt="24/7 Support Chat Bubble"
+          className="object-contain"
+        />
+      </div>
     ),
   },
   {

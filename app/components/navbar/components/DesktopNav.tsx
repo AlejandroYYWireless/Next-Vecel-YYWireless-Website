@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
 
 const DesktopNav = () => {
@@ -20,7 +21,6 @@ const DesktopNav = () => {
   const isDarkmode =
     theme.theme === "dark" ||
     (theme.theme === "system" && theme.systemTheme === "dark");
-  console.log(theme.systemTheme);
 
   return (
     <>
@@ -28,14 +28,17 @@ const DesktopNav = () => {
       <div className="fixed top-0 left-0 right-0 z-[52] bg-background shadow-sm">
         <div className="container mx-auto flex h-24 items-center justify-between">
           <Link href="/" className="flex space-x-2">
-            <img
-              src={`${
+            <Image
+              src={
                 isDarkmode
                   ? "/images/logolargedark.png"
                   : "/images/logolarge.png"
-              }`}
-              className="h-20 me-3"
+              }
+              width={100}
+              height={100}
+              className="me-3"
               alt="YYWireless Logo"
+              priority
             />
           </Link>
           <NavigationMenu>

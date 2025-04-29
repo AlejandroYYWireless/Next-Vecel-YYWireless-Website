@@ -1,5 +1,6 @@
 import { HomeBento } from "./home/components/HomeBento";
 import HomeCertificates from "./home/components/HomeCertificates";
+import HomeGlobe from "./home/components/HomeGlobe";
 import HomeNumbers from "./home/components/HomeNumbers";
 import { HomePartners } from "./home/components/HomePartners";
 import HomeShinyButton from "./home/components/HomeShinyButton";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="space-y-24 md:space-y-48 scrollbar-hide">
       <div className="relative">
+        <HomeGlobe />
         <div className="absolute left-1/2 bottom-[-110px]">
           <HomeShinyButton />
         </div>
@@ -20,7 +22,6 @@ export default function Home() {
       <div className="container mx-auto">
         <HomeBento />
       </div>
-
       <QualityAndLense />
 
       <HomeCertificates />

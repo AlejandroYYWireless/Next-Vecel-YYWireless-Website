@@ -56,15 +56,24 @@ const CertificateCard = ({
       >
         {isRound ? (
           <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 lg:w-32 lg:h-32 relative rounded-full shadow-lg overflow-hidden border-4 border-primary/20">
-            <Image src={image} alt={alt} fill className="object-cover" />
+            <Image
+              src={image}
+              alt={alt}
+              width={128}
+              height={128}
+              className="object-cover"
+            />
           </div>
         ) : (
-          <Image
-            src={image}
-            alt={alt}
-            fill
-            className="object-contain p-2 sm:p-3 lg:p-4"
-          />
+          <div className="w-full h-36 sm:h-40 md:h-44 lg:h-48 relative">
+            <Image
+              src={image}
+              alt={alt}
+              width={300}
+              height={192}
+              className="object-contain p-2 sm:p-3 lg:p-4 w-full h-full"
+            />
+          </div>
         )}
       </div>
       <div className="p-3 sm:p-4 lg:p-5 border-t border-gray-200 dark:border-gray-700">

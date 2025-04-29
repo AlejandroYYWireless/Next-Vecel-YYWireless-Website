@@ -138,7 +138,7 @@ export function HomeLens() {
           isStatic={false}
           ariaLabel="Zoom Area"
         >
-          <div className="w-full h-[500px] overflow-hidden bg-red-500">
+          <div className="w-full h-[500px] overflow-hidden">
             <img
               src={stockData[activeSlide].image}
               alt={`${stockData[activeSlide].title} image`}

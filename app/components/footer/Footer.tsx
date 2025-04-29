@@ -1,5 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
+import Image from "next/image";
+
 const Footer = () => {
   const theme = useTheme();
   const isDarkmode =
@@ -12,14 +14,17 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="border-b border-border py-4 md:border-none mb-6 md:mb-0">
             <a href="https://YYWireless.com/" className="flex items-center">
-              <img
-                src={`${
+              <Image
+                src={
                   isDarkmode
                     ? "/images/logolargedark.png"
                     : "/images/logolarge.png"
-                }`}
-                className="h-12  md:h-36 me-3"
+                }
+                className="me-3"
                 alt="YYWireless Logo"
+                width={144}
+                height={36}
+                priority
               />
             </a>
           </div>
