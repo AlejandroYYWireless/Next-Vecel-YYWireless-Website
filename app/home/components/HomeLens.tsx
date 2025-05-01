@@ -80,13 +80,13 @@ export function HomeLens() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <CardHeader className="px-0 dark:bg-black/50 dark:p-2 rounded-3xl w-[400px]">
+      <CardHeader className="px-0 dark:p-2 rounded-3xl w-[400px]">
         <CardTitle className="text-2xl py-2">
           {stockData[activeSlide].title}
         </CardTitle>
         <CardDescription>{stockData[activeSlide].description}</CardDescription>
       </CardHeader>
-      <CardContent className="relative w-[400px] p-0 space-y-0 rounded-3xl">
+      <CardContent className="relative shadow-lg w-[400px] p-0 space-y-0 rounded-3xl">
         <div
           className={`absolute inset-0 rounded-3xl flex items-center pointer-events-none justify-center bg-black bg-opacity-60 z-[30] transition-opacity duration-300 ${
             isHovered ? "opacity-0" : "opacity-100"

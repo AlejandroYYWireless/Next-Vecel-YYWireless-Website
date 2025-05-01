@@ -11,14 +11,14 @@ interface StatItemProps {
 const StatItem = ({ pretext, value, posttext }: StatItemProps) => {
   return (
     <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-      <p className="text-muted-foreground text-lg sm:text-xl md:text-2xl lg:text-4xl">
+      <p className="text-gray-700 text-lg sm:text-xl md:text-2xl lg:text-4xl">
         {pretext}
       </p>
       <NumberTicker
         value={value}
-        className="whitespace-pre-wrap font-medium tracking-tighter text-black dark:text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
+        className="whitespace-pre-wrap font-medium tracking-tighter text-gray-100 text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
       />
-      <p className="text-muted-foreground text-base sm:text-xl md:text-2xl lg:text-4xl">
+      <p className="text-gray-700 text-base sm:text-xl md:text-2xl lg:text-4xl">
         {posttext}
       </p>
     </div>

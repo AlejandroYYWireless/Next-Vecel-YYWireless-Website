@@ -1,4 +1,5 @@
 "use client";
+import { ArrowUp } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -6,6 +7,13 @@ import { useState, useEffect } from "react";
 const Footer = () => {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   // Only check theme after component is mounted to avoid hydration mismatch
   useEffect(() => {
@@ -24,8 +32,14 @@ const Footer = () => {
 
   return (
     <footer className="bg-white border-t border-border mt-12 dark:bg-gray-900">
+      <div
+        onClick={scrollToTop}
+        className="p-2 text-sm cursor-pointer hover:bg-muted/50 text-center flex items-center gap-2 justify-center border-b border-border text-primary"
+      >
+        Back to top <ArrowUp className="w-4 h-4" />
+      </div>
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
+        <div className="md:flex md:justify-between ">
           <div className="border-b border-border py-4 md:border-none mb-6 md:mb-0">
             <a href="https://YYWireless.com/" className="flex items-center">
               <Image

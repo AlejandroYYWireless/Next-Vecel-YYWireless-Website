@@ -11,7 +11,7 @@ export default function Home() {
     <div className="space-y-24 md:space-y-40  overflow-hidden">
       <GlobeSection />
       <HomePartners />
-      <div className="grid grid-cols-2  md:grid-cols-2 place-items-center">
+      <div className="grid grid-cols-2 shadow-xl text-white bg-primary py-12 mx-auto rounded-[50px]  md:grid-cols-2 place-items-center">
         <HomeNumbers />
         <HomeVideo />
       </div>
