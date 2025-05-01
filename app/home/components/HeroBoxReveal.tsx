@@ -1,5 +1,5 @@
+import ContactUsDialog from "@/app/components/miscomponents/ContactUsDialog";
 import { BoxReveal } from "@/components/magicui/box-reveal";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Badge } from "@/components/ui/badge";
 export function HeroBoxReveal() {
   return (
@@ -91,7 +91,7 @@ export function HeroBoxReveal() {
 
       <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
         <div className="mt-4 sm:mt-6 lg:mt-8 flex gap-2 sm:gap-4">
-          <InteractiveHoverButton>Contact Us</InteractiveHoverButton>
+          <ContactUsDialog />
         </div>
       </BoxReveal>
     </div>

@@ -8,7 +8,7 @@ import QualityAndLense from "./home/components/QualityAndLense";
 
 export default function Home() {
   return (
-    <div className="space-y-24 md:space-y-40 scrollbar-hide overflow-hidden">
+    <div className="space-y-24 md:space-y-40  overflow-hidden">
       <GlobeSection />
       <HomePartners />
       <div className="grid grid-cols-2  md:grid-cols-2 place-items-center">

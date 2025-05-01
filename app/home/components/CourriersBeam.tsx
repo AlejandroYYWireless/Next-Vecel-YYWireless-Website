@@ -26,13 +26,22 @@ Circle.displayName = "Circle";
 
 export function CourriersBeam({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
-  const div6Ref = useRef<HTMLDivElement>(null);
-  const div7Ref = useRef<HTMLDivElement>(null);
+  // Left side carrier circles
+  const carrier1Ref = useRef<HTMLDivElement>(null);
+  const carrier2Ref = useRef<HTMLDivElement>(null);
+  const carrier3Ref = useRef<HTMLDivElement>(null);
+  const carrier4Ref = useRef<HTMLDivElement>(null);
+  const carrier5Ref = useRef<HTMLDivElement>(null);
+  // Center logo
+  const logoRef = useRef<HTMLDivElement>(null);
+  // Right side carrier circles
+  const carrier6Ref = useRef<HTMLDivElement>(null);
+  const carrier7Ref = useRef<HTMLDivElement>(null);
+  const carrier8Ref = useRef<HTMLDivElement>(null);
+  const carrier9Ref = useRef<HTMLDivElement>(null);
+  const carrier10Ref = useRef<HTMLDivElement>(null);
+  // User
+  const userRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -42,70 +51,158 @@ export function CourriersBeam({ className }: { className?: string }) {
       )}
       ref={containerRef}
     >
-      <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
+      <div className="flex size-full max-w-6xl flex-row items-stretch justify-between gap-10">
+        {/* Left carriers */}
         <div className="flex flex-col justify-center gap-2">
-          <Circle ref={div1Ref}>
+          <Circle ref={carrier1Ref}>
             <Icons.dnclexpress />
           </Circle>
-          <Circle ref={div2Ref}>
+          <Circle ref={carrier2Ref}>
             <Icons.ups />
           </Circle>
-          <Circle ref={div3Ref}>
+          <Circle ref={carrier3Ref}>
             <Icons.fedexground />
           </Circle>
-          <Circle ref={div4Ref}>
+          <Circle ref={carrier4Ref}>
             <Icons.usps />
           </Circle>
-          <Circle ref={div5Ref}>
+          <Circle ref={carrier5Ref}>
             <Icons.fedexexpress />
           </Circle>
         </div>
+
+        {/* Center logo */}
         <div className="flex flex-col justify-center">
-          <Circle ref={div6Ref} className="size-20">
+          <Circle ref={logoRef} className="size-20">
             <Icons.yywireless />
           </Circle>
         </div>
+
+        {/* Right carriers */}
+        <div className="flex flex-col justify-center gap-2">
+          <Circle ref={carrier6Ref}>
+            <Icons.dnclexpress />
+          </Circle>
+          <Circle ref={carrier7Ref}>
+            <Icons.ups />
+          </Circle>
+          <Circle ref={carrier8Ref}>
+            <Icons.fedexground />
+          </Circle>
+          <Circle ref={carrier9Ref}>
+            <Icons.usps />
+          </Circle>
+          <Circle ref={carrier10Ref}>
+            <Icons.fedexexpress />
+          </Circle>
+        </div>
+
+        {/* User */}
         <div className="flex flex-col justify-center">
-          <Circle className="size-16" ref={div7Ref}>
+          <Circle className="size-16" ref={userRef}>
             <Icons.user />
           </Circle>
         </div>
       </div>
 
+      {/* Left carriers to center logo beams */}
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={div6Ref}
+        fromRef={carrier1Ref}
+        toRef={logoRef}
+        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div2Ref}
-        toRef={div6Ref}
+        fromRef={carrier2Ref}
+        toRef={logoRef}
+        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div3Ref}
-        toRef={div6Ref}
+        fromRef={carrier3Ref}
+        toRef={logoRef}
+        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div4Ref}
-        toRef={div6Ref}
+        fromRef={carrier4Ref}
+        toRef={logoRef}
+        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div5Ref}
-        toRef={div6Ref}
+        fromRef={carrier5Ref}
+        toRef={logoRef}
+        duration={3}
+      />
+
+      {/* Center logo to right carriers beams */}
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={logoRef}
+        toRef={carrier6Ref}
+        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div7Ref}
+        fromRef={logoRef}
+        toRef={carrier7Ref}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={logoRef}
+        toRef={carrier8Ref}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={logoRef}
+        toRef={carrier9Ref}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={logoRef}
+        toRef={carrier10Ref}
+        duration={3}
+      />
+
+      {/* Right carriers to user beams */}
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={carrier6Ref}
+        toRef={userRef}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={carrier7Ref}
+        toRef={userRef}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={carrier8Ref}
+        toRef={userRef}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={carrier9Ref}
+        toRef={userRef}
+        duration={3}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={carrier10Ref}
+        toRef={userRef}
+        duration={3}
       />
     </div>
   );
 }
-
 const Icons = {
   fedexexpress2: () => (
     <svg width="100" height="100" viewBox="0 0 438.549 438.549">

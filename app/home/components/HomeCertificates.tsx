@@ -10,6 +10,7 @@ interface CertificateCardProps {
   title: string;
   description: string;
   isRound?: boolean;
+  link?: string;
 }
 // Certificate Card Component
 const CertificateCard = ({
@@ -18,6 +19,7 @@ const CertificateCard = ({
   title,
   description,
   isRound = false,
+  link = "",
 }: CertificateCardProps) => {
   const handleDownload = async () => {
     try {
@@ -45,6 +47,12 @@ const CertificateCard = ({
     }
   };
 
+  const handleClick = () => {
+    if (link) {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div className="rounded-xl w-full sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] flex flex-col justify-between shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-800">
       <div
@@ -52,7 +60,7 @@ const CertificateCard = ({
           isRound
             ? "flex items-center justify-center p-2 sm:p-3 lg:p-4"
             : "w-full h-36 sm:h-40 md:h-44 lg:h-48"
-        }`}
+        } ${link ? "cursor-pointer" : ""}`}
       >
         {isRound ? (
           <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 lg:w-32 lg:h-32 relative rounded-full shadow-lg overflow-hidden border-4 border-primary/20">
@@ -62,6 +70,7 @@ const CertificateCard = ({
               width={128}
               height={128}
               className="object-cover"
+              onClick={handleClick}
             />
           </div>
         ) : (
@@ -72,6 +81,7 @@ const CertificateCard = ({
               width={300}
               height={192}
               className="object-contain p-2 sm:p-3 lg:p-4 w-full h-full"
+              onClick={handleClick}
             />
           </div>
         )}
@@ -98,15 +108,16 @@ const CertificateCard = ({
 // Certificate data
 const certificatesData = [
   {
-    image: "/images/R2.webp",
+    image: "/images/certifications/R2.webp",
     alt: "R2 Certificate",
     title: "R2 Certification",
     description:
       "Electronics recycling standard certification for responsible recycling practices and environmental stewardship.",
     isRound: false,
+    link: "https://www.r2solutions.org/",
   },
   {
-    image: "/images/adisa.jpg",
+    image: "/images/certifications/adisa.jpg",
     alt: "ADISA Certification",
     title: "ADISA Certification",
     description:
@@ -114,17 +125,17 @@ const certificatesData = [
     isRound: true,
   },
   {
-    image: "/images/cert1.webp",
-    alt: "Perry Johnson Certificate 1",
-    title: "Perry Johnson ISO 9001",
+    image: "/images/certifications/ISO9001.png",
+    alt: "International Organization for Standarization 9001",
+    title: "ISO 9001",
     description:
       "Quality Management System certification ensuring consistent service quality and customer satisfaction.",
     isRound: false,
   },
   {
-    image: "/images/cert2.webp",
-    alt: "Perry Johnson Certificate 2",
-    title: "Perry Johnson ISO 14001",
+    image: "/images/certifications/ISO9001.png",
+    alt: "International Organization for Standarization 14001",
+    title: "ISO 14001",
     description:
       "Environmental Management System certification demonstrating our commitment to environmental responsibility.",
     isRound: false,
@@ -172,6 +183,7 @@ const HomeCertificates = () => {
               title={certificate.title}
               description={certificate.description}
               isRound={certificate.isRound}
+              link={certificate.link || ""}
             />
           ))}
         </div>

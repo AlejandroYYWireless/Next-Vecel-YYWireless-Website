@@ -1,3 +1,4 @@
+"use client";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -34,8 +35,8 @@ export const ModelViewer = ({
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(containerWidth, containerHeight);
     // Enable shadows in the renderer
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    // renderer.shadowMap.enabled = true;
+    // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     mountRef.current.appendChild(renderer.domElement);
 
     // Enhanced lighting setup with multiple lights
@@ -80,8 +81,9 @@ export const ModelViewer = ({
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.minDistance = 2; // Limit how close you can zoom
-    controls.maxDistance = 10; // Limit how far you can zoom
+    controls.enableZoom = false;
+    controls.minDistance = 1.9; // Limit how close you can zoom
+    controls.maxDistance = 2; // Limit how far you can zoom
     controls.target.set(0, 0.1, 0); // Adjust target height to match new model position
 
     // Load the model
@@ -168,7 +170,7 @@ export const ModelViewer = ({
 
   return (
     <div
-      className="w-full relative bg-gray-50 rounded-lg"
+      className="w-full relative rounded-lg"
       ref={mountRef}
       style={{ height, width }}
     />
