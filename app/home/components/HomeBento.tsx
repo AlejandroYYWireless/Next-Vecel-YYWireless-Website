@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import { Marquee } from "@devnomic/marquee";
-import { AnimatedBeamMultipleOutputDemo } from "./AnimatedBeamMultiple";
+import { CourriersBeam } from "./CourriersBeam";
 const files = [
   {
     name: "Carlos Barba",
@@ -81,7 +81,7 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <AnimatedBeamMultipleOutputDemo className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <CourriersBeam className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
   },
   {
@@ -129,7 +129,7 @@ export function HomeBento() {
       exit={{ opacity: 0, y: -50 }} // When exiting, fade out and move up 50px
       viewport={{
         once: true, // Animation will trigger every time
-        amount: 0.3, // Triggers when 30% in view for entering
+        amount: 0.1, // Triggers when 30% in view for entering
         margin: "0px 0px -20% 0px", // Exit animation starts when element is 60% out of viewport
       }}
       transition={{

@@ -50,7 +50,7 @@ export function useScrollAnimationController({
         document.documentElement.offsetHeight
       );
       const windowHeight = window.innerHeight;
-      const maxScrollPosition = docHeight - windowHeight - 200; // Offset by 200px from bottom
+      const maxScrollPosition = docHeight - windowHeight - 500; // Offset by 200px from bottom
 
       // Only scroll if we haven't reached the maximum position
       if (window.scrollY < maxScrollPosition) {

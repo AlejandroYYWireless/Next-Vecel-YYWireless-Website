@@ -16,10 +16,10 @@ const SecondEvent = () => {
           </p>
         </div>
         <div className="image-wrapper w-1/2 flex justify-center">
-          <div className="brand-image bg-red-100 w-[400px] h-[300px] rounded-lg flex items-center justify-center p-8">
+          <div className="brand-image bg-primary w-[400px] h-[300px] rounded-3xl flex items-center justify-center p-8">
             <img
               src="https://images.unsplash.com/photo-1610320022580-5295faad847c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-full object-contain rounded-xl"
             />
           </div>
         </div>

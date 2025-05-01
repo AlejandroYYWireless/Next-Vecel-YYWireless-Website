@@ -38,7 +38,7 @@ const HomeVideo = () => {
   }
 
   return (
-    <div className="relative w-full pb-12 ">
+    <div className="relative  w-full  ">
       {/* Enlarged dot pattern that extends beyond the video boundaries */}
       <div
         className="absolute inset-0 z-0 overflow-hidden"
@@ -62,7 +62,7 @@ const HomeVideo = () => {
       </div>
 
       {/* Video positioned to take up most but not all of the container */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto overflow-hidden rounded-3xl shadow-lg">
+      <div className="relative z-10 w-full max-w-3xl overflow-hidden rounded-3xl shadow-lg">
         {/* Video player wrapper with overflow hidden to enforce rounded corners */}
         <div className="aspect-video w-full overflow-hidden rounded-3xl">
           <ReactPlayer

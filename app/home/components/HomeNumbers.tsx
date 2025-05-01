@@ -39,7 +39,7 @@ const HomeNumbers = () => {
       exit={{ opacity: 0, y: -50 }} // When exiting, fade out and move up 50px
       viewport={{
         once: true, // Animation will trigger every time
-        amount: 0.3, // Triggers when 30% in view for entering
+        amount: 0.1, // Triggers when 30% in view for entering
         margin: "0px 0px -20% 0px", // Exit animation starts when element is 60% out of viewport
       }}
       transition={{
@@ -48,7 +48,7 @@ const HomeNumbers = () => {
       }}
       className="flex flex-col items-start md:items-center"
     >
-      <div className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
+      <div className="space-y-12 flex flex-col justify-end items-end text-end sm:space-y-16 md:space-y-20 lg:space-y-24">
         {stats.map((stat, index) => (
           <StatItem
             key={index}

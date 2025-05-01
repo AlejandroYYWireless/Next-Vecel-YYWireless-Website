@@ -53,8 +53,6 @@ export function HomePartners() {
       exit={{ opacity: 0, y: -50 }}
       viewport={{
         once: true,
-        amount: 0.3,
-        margin: "0px 0px -20% 0px",
       }}
       transition={{
         duration: 0.7,

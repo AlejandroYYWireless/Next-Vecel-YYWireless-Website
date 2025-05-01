@@ -6,8 +6,10 @@ import { useEffect, useRef } from "react";
 export const ModelViewer = ({
   modelPath = "/models/iphone.glb",
   height = "400px",
+  width = "100%",
 }) => {
-  const mountRef = useRef(null);
+  // Add HTMLDivElement type to the ref to fix the type errors
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -17,41 +19,70 @@ export const ModelViewer = ({
 
     // Get parent container dimensions
     const container = mountRef.current;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
 
-    const camera = new THREE.PerspectiveCamera(65, width / height, 0.1, 1000);
-    camera.position.z = 2;
+    const camera = new THREE.PerspectiveCamera(
+      55,
+      containerWidth / containerHeight,
+      0.1,
+      1000
+    );
+    // Increased initial camera distance for reduced zoom
+    camera.position.z = 4;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(width, height);
+    renderer.setSize(containerWidth, containerHeight);
+    // Enable shadows in the renderer
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     mountRef.current.appendChild(renderer.domElement);
 
     // Enhanced lighting setup with multiple lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
-    // Main key light from front-right
-    const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    keyLight.position.set(1, 2, 3);
+    // Main key light from front-right with shadow casting
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    keyLight.position.set(5, 5, 5);
+    keyLight.castShadow = true;
+    // Configure shadow properties for better quality
+    keyLight.shadow.mapSize.width = 1024;
+    keyLight.shadow.mapSize.height = 1024;
+    keyLight.shadow.camera.near = 0.5;
+    keyLight.shadow.camera.far = 50;
+    keyLight.shadow.camera.left = -10;
+    keyLight.shadow.camera.right = 10;
+    keyLight.shadow.camera.top = 10;
+    keyLight.shadow.camera.bottom = -10;
     scene.add(keyLight);
 
     // Fill light from opposite side
-    const fillLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    fillLight.position.set(-2, 1, -1);
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    fillLight.position.set(-5, 2, -2);
     scene.add(fillLight);
 
     // Top light for better overall illumination
-    const topLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    topLight.position.set(0, 5, 0);
+    const topLight = new THREE.DirectionalLight(0xffffff, 0.4);
+    topLight.position.set(0, 8, 0);
     scene.add(topLight);
 
-    // Add orbit controls with target set to scene center
+    // Add a ground plane to receive shadows
+    const planeGeometry = new THREE.PlaneGeometry(20, 20);
+    const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.3 });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.x = -Math.PI / 2; // Rotate to horizontal
+    plane.position.y = -0.8; // Position closer to the model
+    plane.receiveShadow = true;
+    scene.add(plane);
+
+    // Add orbit controls with custom settings
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    // Setting the target to the origin ensures rotation around center
-    controls.target.set(0, 0, 0);
+    controls.minDistance = 2; // Limit how close you can zoom
+    controls.maxDistance = 10; // Limit how far you can zoom
+    controls.target.set(0, 0.1, 0); // Adjust target height to match new model position
 
     // Load the model
     const loader = new GLTFLoader();
@@ -74,16 +105,28 @@ export const ModelViewer = ({
         // Position the model within the group so its center is at the group's origin
         model.position.set(-center.x, -center.y, -center.z);
 
+        // Enable shadows for all objects in the model
+        model.traverse((object) => {
+          // Add type guard to fix the isMesh error
+          if (object instanceof THREE.Mesh) {
+            object.castShadow = true;
+            object.receiveShadow = true;
+          }
+        });
+
         // Add the group to the scene
         scene.add(modelGroup);
 
         // Set controls target to the center of the model
         controls.target.copy(modelGroup.position);
 
-        // Auto-scale if needed
+        // Auto-scale if needed, but with reduced scale for "zoomed out" effect
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 2 / maxDim; // Increased scale factor for closer view
+        const scale = 1.5 / maxDim; // Smaller scale factor for reduced zoom
         modelGroup.scale.set(scale, scale, scale);
+
+        // Position the model closer to the floor
+        modelGroup.position.y = 0.1;
       },
       undefined,
       (error) => console.error("Error loading model:", error)
@@ -123,5 +166,11 @@ export const ModelViewer = ({
     };
   }, [modelPath]);
 
-  return <div className="w-full" ref={mountRef} style={{ height: height }} />;
+  return (
+    <div
+      className="w-full relative bg-gray-50 rounded-lg"
+      ref={mountRef}
+      style={{ height, width }}
+    />
+  );
 };

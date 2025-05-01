@@ -5,7 +5,7 @@ export function HeroBoxReveal() {
   return (
     <div className="max-w-3xl items-center justify-start overflow-hidden px-4 sm:px-6 lg:px-0">
       <BoxReveal boxColor={"hsl(var(--primary))"} duration={0.5}>
-        <p className="text-2xl sm:text-3xl md:text-5xl lg:text-[3.8rem] font-bold whitespace-normal sm:whitespace-nowrap mt-0 pt-0 leading-tight">
+        <p className="text-2xl h-20 sm:text-3xl md:text-5xl lg:text-[3.8rem] font-bold whitespace-normal sm:whitespace-nowrap mt-0 pt-0 leading-tight">
           Quality At Every Step<span className="text-primary">.</span>
         </p>
       </BoxReveal>

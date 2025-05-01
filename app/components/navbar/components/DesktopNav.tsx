@@ -15,29 +15,41 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
+import { useState, useEffect } from "react";
 
 const DesktopNav = () => {
-  const theme = useTheme();
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Only check theme after component is mounted to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Only determine dark mode after component has mounted
   const isDarkmode =
-    theme.theme === "dark" ||
-    (theme.theme === "system" && theme.systemTheme === "dark");
+    mounted &&
+    (theme === "dark" || (theme === "system" && systemTheme === "dark"));
+
+  // Determine which logo to use based on theme
+  const logoSrc = isDarkmode
+    ? "/images/logolargedark.png"
+    : "/images/logolarge.png";
 
   return (
     <>
       {/* Fixed navbar container */}
-      <div className="fixed top-0 left-0 right-0 z-[52] bg-background shadow-sm">
+      <div className="fixed top-0 left-0 right-0 z-[52] bg-background shadow-primary/5 shadow-md">
         <div className="container mx-auto flex h-24 items-center justify-between">
           <Link href="/" className="flex space-x-2">
+            {/* Use visible: hidden until mounted to prevent hydration issues */}
             <Image
-              src={
-                isDarkmode
-                  ? "/images/logolargedark.png"
-                  : "/images/logolarge.png"
-              }
+              src={logoSrc}
               width={100}
               height={100}
-              className="me-3"
+              className={`me-3 ${mounted ? "" : "invisible"}`}
               alt="YYWireless Logo"
+              style={{ height: "auto" }}
               priority
             />
           </Link>
@@ -58,7 +70,7 @@ const DesktopNav = () => {
       </div>
 
       {/* Spacer to prevent content from being hidden under the fixed navbar */}
-      <div className="h-24"></div>
+      <div className="h-24 bg-primary"></div>
     </>
   );
 };

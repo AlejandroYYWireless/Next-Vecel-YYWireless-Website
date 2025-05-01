@@ -29,9 +29,6 @@ export const setupControls = (
 };
 
 /**
- * Creates an animation loop for the globe scene
- */
-/**
  * Creates an animation loop for the globe scene with rotation control
  */
 export const createAnimationLoop = (
@@ -43,48 +40,12 @@ export const createAnimationLoop = (
   rotationSpeed: number = 0.005,
   isRotatingRef: React.MutableRefObject<boolean>
 ): (() => void) => {
-  // Debug log for initial state
-  console.log(
-    "Animation loop started, initial rotation state:",
-    isRotatingRef.current
-  );
-
-  // Track rotation state for debugging
-  let lastRotationState = isRotatingRef.current;
-  let frameCount = 0;
-
   const animate = () => {
     requestAnimationFrame(animate);
-
-    frameCount++;
-
-    // Check if rotation state changed (log only on change)
-    if (lastRotationState !== isRotatingRef.current) {
-      console.log(
-        `Rotation state changed to: ${
-          isRotatingRef.current ? "rotating" : "paused"
-        }`
-      );
-      lastRotationState = isRotatingRef.current;
-    }
-
-    // Log rotation state periodically for debugging (every 100 frames)
-    if (frameCount % 100 === 0) {
-      console.log(
-        `Current rotation state: ${
-          isRotatingRef.current ? "rotating" : "paused"
-        }`
-      );
-    }
 
     // Only rotate if rotation is enabled
     if (isRotatingRef.current) {
       globeGroup.rotation.y += rotationSpeed;
-    } else {
-      // Debug: indicate we're respecting the pause
-      if (frameCount % 100 === 0) {
-        console.log("Globe rotation is currently paused");
-      }
     }
 
     controls.update();
@@ -93,13 +54,7 @@ export const createAnimationLoop = (
 
   return animate;
 };
-/**
- * Sets up interaction with location markers on hover with improved precision
- */
-/**
- * Sets up interaction with location markers using nearest marker detection
- * with a VERY small distance threshold
- */
+
 /**
  * Sets up interaction with location markers using nearest visible marker detection
  */
@@ -126,21 +81,6 @@ export const setupLocationInteraction = (
     normal: null,
     hovered: null,
   };
-
-  console.log("Setting up location interaction with visible face detection");
-
-  // Add debug element
-  const debugElement = document.createElement("div");
-  debugElement.style.position = "fixed";
-  debugElement.style.bottom = "10px";
-  debugElement.style.left = "10px";
-  debugElement.style.backgroundColor = "rgba(0,0,0,0.7)";
-  debugElement.style.color = "white";
-  debugElement.style.padding = "5px";
-  debugElement.style.fontFamily = "monospace";
-  debugElement.style.fontSize = "12px";
-  debugElement.style.zIndex = "1000";
-  document.body.appendChild(debugElement);
 
   // Helper to convert mouse coordinates to normalized device coordinates
   const updateMouseCoordinates = (event: MouseEvent) => {
@@ -244,24 +184,6 @@ export const setupLocationInteraction = (
       const nearest =
         markersWithDistances.length > 0 ? markersWithDistances[0] : null;
 
-      // Update debug info
-      if (debugElement) {
-        debugElement.innerHTML = `
-            Mouse: ${event.clientX}, ${event.clientY}<br>
-            Normalized: ${mouse.x.toFixed(2)}, ${mouse.y.toFixed(2)}<br>
-            Hovered: ${hoveredObject ? hoveredObject.userData.name : "none"}<br>
-            Nearest: ${
-              nearest
-                ? nearest.marker.userData.name +
-                  " (" +
-                  nearest.distance.toFixed(0) +
-                  "px)"
-                : "none"
-            }<br>
-            Visible markers: ${markersWithDistances.length}
-          `;
-      }
-
       // Small threshold for precise hover detection
       const HOVER_THRESHOLD_PX = 20; // pixels
 
@@ -281,14 +203,6 @@ export const setupLocationInteraction = (
             (hoveredObject as THREE.Mesh).material = materials.normal;
           }
 
-          console.log(
-            "Hovering on:",
-            nearest.marker.userData.name,
-            "at screen distance:",
-            nearest.distance.toFixed(0),
-            "px"
-          );
-
           // Pause globe rotation
           setIsRotating(false);
 
@@ -304,7 +218,6 @@ export const setupLocationInteraction = (
           (hoveredObject as THREE.Mesh).material = materials.normal;
         }
 
-        console.log("No longer hovering:", hoveredObject.userData.name);
         hoveredObject = null;
 
         // Resume globe rotation
@@ -322,7 +235,6 @@ export const setupLocationInteraction = (
         (hoveredObject as THREE.Mesh).material = materials.normal;
       }
 
-      console.log("Mouse left canvas, clearing hover state");
       hoveredObject = null;
       setIsRotating(true);
       onLocationHover(null, null);

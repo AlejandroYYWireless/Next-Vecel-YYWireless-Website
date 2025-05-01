@@ -1,4 +1,9 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
+// Register plugins
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 /**
  * Creates an animation for a single section
@@ -15,28 +20,17 @@ export function createSectionAnimation(
     scrollTrigger: {
       trigger: section,
       start: "top top",
-      end: "+=300%", // Extend scroll distance to 4x viewport height for more animation steps
-      scrub: 1, // Smooth scrubbing effect
-      pin: true, // Pin the section during animation
-      anticipatePin: 1, // For better performance
-      markers: true, // For debugging - remove in production
+      end: "+=300%",
+      scrub: 1,
+      pin: true,
+      anticipatePin: 1,
     },
   });
 
-  const finalImageX = isEven ? "25%" : "-25%"; // Right for even, Left for odd
+  const finalImageX = isEven ? "25%" : "-25%";
 
-  // Different starting positions based on device width
-  const isMobile = window.innerWidth < 768;
-
-  // Set up responsiveness
-  configureResponsiveLayout(
-    section,
-    textContent,
-    imageWrapper,
-    image,
-    isEven,
-    isMobile
-  );
+  // Set up layout
+  configureLayout(section, textContent, imageWrapper, image, isEven);
 
   // Add animations to timeline
   addAnimationsToTimeline(
@@ -45,7 +39,6 @@ export function createSectionAnimation(
     image,
     imageWrapper,
     isEven,
-    isMobile,
     finalImageX
   );
 
@@ -53,39 +46,30 @@ export function createSectionAnimation(
 }
 
 /**
- * Configure the responsive layout based on device size
+ * Configure the layout for desktop view
  */
-function configureResponsiveLayout(
+function configureLayout(
   section: HTMLElement,
   textContent: HTMLElement,
   imageWrapper: HTMLElement,
   image: HTMLElement,
-  isEven: boolean,
-  isMobile: boolean
+  isEven: boolean
 ): void {
   // Initial states for text
   gsap.set(textContent, { opacity: 0, x: isEven ? -50 : 50 });
 
-  if (isMobile) {
-    // Mobile: Stack elements vertically
-    gsap.set(section, { display: "flex", flexDirection: "column" });
-    gsap.set(imageWrapper, { width: "100%" });
-    gsap.set(textContent, { order: 2 }); // Text always below image on mobile
-    gsap.set(imageWrapper, { order: 1 }); // Image always on top on mobile
-  } else {
-    // Desktop: Side by side with alternating positions
-    gsap.set(section, { display: "flex", flexDirection: "row" });
-    gsap.set(imageWrapper, { width: "100%" }); // Start with full width wrapper
+  // Desktop: Side by side with alternating positions
+  gsap.set(section, { display: "flex", flexDirection: "row" });
+  gsap.set(imageWrapper, { width: "100%" }); // Start with full width wrapper
 
-    // Set order based on even/odd
-    gsap.set(textContent, { order: isEven ? 1 : 2 }); // Left for even, Right for odd
-    gsap.set(imageWrapper, { order: isEven ? 2 : 1 }); // Right for even, Left for odd
-  }
+  // Set order based on even/odd
+  gsap.set(textContent, { order: isEven ? 1 : 2 }); // Left for even, Right for odd
+  gsap.set(imageWrapper, { order: isEven ? 2 : 1 }); // Right for even, Left for odd
 
   // Initial settings for image
   gsap.set(image, {
     opacity: 0,
-    scale: 1.2,
+    scale: 1,
     x: 0,
     position: "relative",
     left: "0%",
@@ -102,7 +86,6 @@ function addAnimationsToTimeline(
   image: HTMLElement,
   imageWrapper: HTMLElement,
   isEven: boolean,
-  isMobile: boolean,
   finalImageX: string
 ): void {
   tl
@@ -110,7 +93,7 @@ function addAnimationsToTimeline(
     .to(image, {
       opacity: 1,
       scale: 2,
-      x: "0%", // Centered for mobile, adjusted for desktop
+      x: "0%",
       duration: 1,
       ease: "power2.out",
     })
@@ -122,7 +105,7 @@ function addAnimationsToTimeline(
       image,
       {
         scale: 1,
-        x: isMobile ? "0%" : finalImageX, // No horizontal movement on mobile
+        x: finalImageX,
         duration: 1,
         ease: "power3.inOut",
       },
@@ -131,7 +114,7 @@ function addAnimationsToTimeline(
     .to(
       imageWrapper,
       {
-        width: isMobile ? "100%" : "50%", // Full width on mobile, half on desktop
+        width: "50%",
         duration: 1,
         ease: "power3.inOut",
       },

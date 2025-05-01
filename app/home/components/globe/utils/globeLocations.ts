@@ -15,6 +15,7 @@ export interface GlobeLocation {
  */
 export const worldCities: GlobeLocation[] = [
   { name: "New York", lat: 40.7128, long: -74.006, size: 1.0 },
+  { name: "YYWireless", lat: 41.6122, long: -93.747, size: 1.5 },
   { name: "London", lat: 51.5074, long: -0.1278, size: 0.9 },
   { name: "Tokyo", lat: 35.6762, long: 139.6503, size: 1.0 },
   { name: "Paris", lat: 48.8566, long: 2.3522, size: 0.8 },

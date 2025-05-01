@@ -1,12 +1,26 @@
 "use client";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
-  const theme = useTheme();
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Only check theme after component is mounted to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Only determine dark mode after component has mounted
   const isDarkmode =
-    theme.theme === "dark" ||
-    (theme.theme === "system" && theme.systemTheme === "dark");
+    mounted &&
+    (theme === "dark" || (theme === "system" && systemTheme === "dark"));
+
+  // Determine which logo to use based on theme
+  const logoSrc = isDarkmode
+    ? "/images/logolargedark.png"
+    : "/images/logolarge.png";
 
   return (
     <footer className="bg-white border-t border-border mt-12 dark:bg-gray-900">
@@ -15,22 +29,18 @@ const Footer = () => {
           <div className="border-b border-border py-4 md:border-none mb-6 md:mb-0">
             <a href="https://YYWireless.com/" className="flex items-center">
               <Image
-                src={
-                  isDarkmode
-                    ? "/images/logolargedark.png"
-                    : "/images/logolarge.png"
-                }
-                className="me-3"
+                src={logoSrc}
+                className={`me-3 ${mounted ? "" : "invisible"}`}
                 alt="YYWireless Logo"
                 width={144}
                 height={36}
-                priority
+                style={{ height: "auto", width: "auto", maxWidth: "144px" }}
               />
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-primary uppercase">
                 Certifications
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -53,7 +63,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-primary uppercase ">
                 Follow us
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -76,7 +86,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-primary uppercase ">
                 Legal
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -104,10 +114,7 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
+            <a href="#" className="text-primary">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -123,10 +130,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Facebook page</span>
             </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-            >
+            <a href="#" className="text-primary ms-5">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -138,10 +142,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Discord community</span>
             </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-            >
+            <a href="#" className="text-primary ms-5">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -157,10 +158,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Twitter page</span>
             </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-            >
+            <a href="#" className="text-primary ms-5">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -176,10 +174,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">GitHub account</span>
             </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-            >
+            <a href="#" className="text-primary ms-5">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"

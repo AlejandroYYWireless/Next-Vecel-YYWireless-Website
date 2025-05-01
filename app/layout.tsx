@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.className}>
       <link rel="icon" href="/icon.png" sizes="any" />
-      {/* i hate this font */}
       <body className="antialiased">
         <ThemeProvider
           attribute="class"

@@ -35,7 +35,7 @@ interface YYGlobeProps {
   stippleEnabled?: boolean;
   markerColor?: string;
   locations?: GlobeLocation[];
-  showDebugInfo?: boolean;
+  height?: string;
 }
 
 const YYGlobe: React.FC<YYGlobeProps> = ({
@@ -47,11 +47,11 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
   stippleEnabled = true,
   markerColor = "#ffcc00",
   locations = defaultLocations,
-  showDebugInfo = false,
+  height = "400px",
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
 
-  // IMPORTANT: Create rotating state as a state value so component re-renders when changed
+  // Create rotating state as a state value so component re-renders when changed
   const [isRotating, setIsRotating] = useState(true);
 
   // Use a ref to hold the current rotation state that can be accessed in animation loop
@@ -60,7 +60,6 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
   // Update the ref whenever state changes
   useEffect(() => {
     isRotatingRef.current = isRotating;
-    console.log("Rotation state updated in ref:", isRotatingRef.current);
   }, [isRotating]);
 
   // State for hover information
@@ -77,13 +76,11 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
     locationData: any | null,
     position: { x: number; y: number } | null
   ) => {
-    console.log("Location hover update:", locationData?.name || "none");
     setHoverInfo({ locationData, position });
   };
 
   useEffect(() => {
     if (!mountRef.current) return;
-    console.log("Initializing globe with nearest marker hover detection");
 
     // Initialize scene
     const scene = new THREE.Scene();
@@ -92,6 +89,12 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
     const camera = setupCamera();
     const renderer = setupRenderer();
     mountRef.current.appendChild(renderer.domElement);
+
+    // Set renderer to take up full container
+    renderer.domElement.style.position = "absolute";
+    renderer.domElement.style.left = "0";
+    renderer.domElement.style.right = "0";
+    renderer.domElement.style.margin = "0 auto";
 
     // Setup controls
     const controls = setupControls(camera, renderer);
@@ -107,15 +110,11 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
     // Load and process GeoJSON data with stippling if enabled
     loadGeoJSONData(globeGroup, radius, lineColor);
 
-    console.log("Adding location markers...");
     // Add location markers - IMPORTANT: Do this AFTER loading GeoJSON
     if (locations.length > 0) {
       addLocationMarkers(globeGroup, radius, locations, markerColor);
     }
 
-    console.log(
-      "Setting up hover interaction with nearest marker detection..."
-    );
     // Setup hover interaction for locations
     setupLocationInteraction(
       camera,
@@ -132,11 +131,10 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
     const handleResize = createResizeHandler(camera, renderer, mountRef);
     window.addEventListener("resize", handleResize);
 
+    // Trigger initial resize to set correct dimensions
+    handleResize();
+
     // Setup animation loop with rotation control
-    console.log(
-      "Starting animation loop with initial rotation:",
-      isRotatingRef.current
-    );
     const animate = createAnimationLoop(
       globeGroup,
       controls,
@@ -150,7 +148,6 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
 
     // Cleanup
     return () => {
-      console.log("Cleaning up globe component");
       window.removeEventListener("resize", handleResize);
       if (mountRef.current) {
         mountRef.current.removeChild(renderer.domElement);
@@ -171,26 +168,14 @@ const YYGlobe: React.FC<YYGlobeProps> = ({
   ]); // Don't include isRotating in dependencies to avoid recreation of the scene
 
   return (
-    <div ref={mountRef} style={{ width: "100%", height: "100vh" }}>
-      {/* Optional debug indicator for rotation state */}
-      {showDebugInfo && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            background: "rgba(0,0,0,0.7)",
-            color: "white",
-            padding: "5px",
-            fontFamily: "monospace",
-            fontSize: "12px",
-            zIndex: 1000,
-          }}
-        >
-          Rotation: {isRotating ? "Active" : "Paused"}
-        </div>
-      )}
-
+    <div
+      ref={mountRef}
+      style={{
+        height: height,
+        position: "relative",
+      }}
+      className="overflow-x-clip"
+    >
       {/* Render the hover card when a location is hovered */}
       <LocationHoverCard
         locationData={hoverInfo.locationData}

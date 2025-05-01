@@ -17,22 +17,22 @@ export const navItems: Record<string, NavItem> = {
     path: "/",
     subLinks: null,
   },
-  wholesale: {
-    label: "Wholesale",
-    path: null,
-    subLinks: {
-      "contact-us": {
-        label: "Contact Us",
-        path: "/wholesale/contact-us",
-        subLinks: null,
-      },
-      deals: {
-        label: "Current Deals",
-        path: "/wholesale/current-deals",
-        subLinks: null,
-      },
-    },
-  },
+  // wholesale: {
+  //   label: "Wholesale",
+  //   path: null,
+  //   subLinks: {
+  //     "contact-us": {
+  //       label: "Contact Us",
+  //       path: "/wholesale/contact-us",
+  //       subLinks: null,
+  //     },
+  //     deals: {
+  //       label: "Current Deals",
+  //       path: "/wholesale/current-deals",
+  //       subLinks: null,
+  //     },
+  //   },
+  // },
   about: {
     label: "About",
     path: "/about-us",
